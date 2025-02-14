@@ -1,0 +1,160 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Cielo Estrellado */
+.night {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #001d3d; /* Fondo de la noche */
+    animation: twinkling 5s infinite ease-in-out;
+}
+
+/* Animación para las estrellas parpadeantes */
+@keyframes twinkling {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Luna */
+.moon {
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    width: 150px;
+    height: 150px;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    z-index: 1;
+}
+
+/* Estrellas fugaces */
+.shooting-star {
+    position: absolute;
+    background-color: white;
+    width: 4px;
+    height: 15px;
+    opacity: 0;
+    animation: shootingStar 3s linear infinite, fadeTail 1s forwards;
+    border-radius: 50%;
+    transform-origin: center;
+    animation-delay: 0s;
+}
+
+/* Establecer diferentes posiciones y retrasos */
+.shooting-star:nth-child(1) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 1s;
+}
+
+.shooting-star:nth-child(2) {
+    top: 20%;
+    left: 30%;
+    animation-delay: 1.2s;
+}
+
+.shooting-star:nth-child(3) {
+    top: 40%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.shooting-star:nth-child(4) {
+    top: 30%;
+    left: 10%;
+    animation-delay: 2.4s;
+}
+
+.shooting-star:nth-child(5) {
+    top: 60%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+.shooting-star:nth-child(6) {
+    top: 80%;
+    left: 25%;
+    animation-delay: 3.3s;
+}
+
+.shooting-star:nth-child(7) {
+    top: 15%;
+    left: 60%;
+    animation-delay: 3.7s;
+}
+
+.shooting-star:nth-child(8) {
+    top: 50%;
+    left: 80%;
+    animation-delay: 4s;
+}
+
+.shooting-star:nth-child(9) {
+    top: 70%;
+    left: 20%;
+    animation-delay: 4.2s;
+}
+
+.shooting-star:nth-child(10) {
+    top: 10%;
+    left: 40%;
+    animation-delay: 4.5s;
+}
+
+/* Animación de la estrella fugaz */
+@keyframes shootingStar {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(400px, 300px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Animación para la cola de la estrella fugaz */
+@keyframes fadeTail {
+    0% {
+        width: 4px;
+        height: 15px;
+        opacity: 1;
+    }
+    100% {
+        width: 20px;
+        height: 30px;
+        opacity: 0;
+        background: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Añadir la cola a la estrella fugaz */
+.shooting-star::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0) 50%);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
