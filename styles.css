@@ -201,13 +201,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px; /* Aumentamos el tamaño de la carta */
-    max-height: 80%; /* Limitamos la altura para que no ocupe toda la pantalla */
+    width: 80%;
+    max-width: 400px; /* Aumentamos el tamaño máximo para pantallas grandes */
+    max-height: 80%;
     background-color: black;
     color: white;
     padding: 20px;
     font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente Comic Sans */
-    font-size: 14px; /* Reducimos el tamaño de la fuente */
+    font-size: 16px; /* Ajustamos el tamaño de la fuente */
     line-height: 1.4;
     border-radius: 10px;
     display: none; /* Inicialmente oculta */
@@ -232,5 +233,25 @@ body {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Media Queries para hacer la carta más pequeña en dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .letter {
+        width: 90%;
+        font-size: 14px; /* Reducimos el tamaño de la fuente para móviles */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .letter {
+        width: 95%;
+        font-size: 12px; /* Reducimos aún más el tamaño de la fuente */
+    }
+
+    .moon {
+        width: 120px;
+        height: 120px;
     }
 }
