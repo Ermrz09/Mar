@@ -43,6 +43,7 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     z-index: 1;
+    cursor: pointer; /* Hace clickeable la luna */
 }
 
 /* Estrellas fugaces */
@@ -52,23 +53,22 @@ body {
     width: 4px;
     height: 15px;
     opacity: 0;
-    animation: shootingStar 3s linear infinite, fadeTail 1s forwards;
+    animation: shootingStar 5s linear infinite, fadeTail 2s forwards;
     border-radius: 50%;
     transform-origin: center;
-    animation-delay: 0s;
 }
 
-/* Establecer diferentes posiciones y retrasos */
+/* Establecer diferentes posiciones y retrasos para más estrellas fugaces */
 .shooting-star:nth-child(1) {
     top: 10%;
     left: 5%;
-    animation-delay: 1s;
+    animation-delay: 0s;
 }
 
 .shooting-star:nth-child(2) {
     top: 20%;
     left: 30%;
-    animation-delay: 1.2s;
+    animation-delay: 1s;
 }
 
 .shooting-star:nth-child(3) {
@@ -80,43 +80,79 @@ body {
 .shooting-star:nth-child(4) {
     top: 30%;
     left: 10%;
-    animation-delay: 2.4s;
+    animation-delay: 3s;
 }
 
 .shooting-star:nth-child(5) {
     top: 60%;
     left: 70%;
-    animation-delay: 3s;
+    animation-delay: 4s;
 }
 
 .shooting-star:nth-child(6) {
     top: 80%;
     left: 25%;
-    animation-delay: 3.3s;
+    animation-delay: 5s;
 }
 
 .shooting-star:nth-child(7) {
     top: 15%;
     left: 60%;
-    animation-delay: 3.7s;
+    animation-delay: 6s;
 }
 
 .shooting-star:nth-child(8) {
     top: 50%;
     left: 80%;
-    animation-delay: 4s;
+    animation-delay: 7s;
 }
 
 .shooting-star:nth-child(9) {
     top: 70%;
     left: 20%;
-    animation-delay: 4.2s;
+    animation-delay: 8s;
 }
 
 .shooting-star:nth-child(10) {
     top: 10%;
     left: 40%;
-    animation-delay: 4.5s;
+    animation-delay: 9s;
+}
+
+.shooting-star:nth-child(11) {
+    top: 15%;
+    left: 80%;
+    animation-delay: 10s;
+}
+
+.shooting-star:nth-child(12) {
+    top: 50%;
+    left: 20%;
+    animation-delay: 11s;
+}
+
+.shooting-star:nth-child(13) {
+    top: 35%;
+    left: 10%;
+    animation-delay: 12s;
+}
+
+.shooting-star:nth-child(14) {
+    top: 60%;
+    left: 60%;
+    animation-delay: 13s;
+}
+
+.shooting-star:nth-child(15) {
+    top: 10%;
+    left: 70%;
+    animation-delay: 14s;
+}
+
+.shooting-star:nth-child(16) {
+    top: 25%;
+    left: 40%;
+    animation-delay: 15s;
 }
 
 /* Animación de la estrella fugaz */
@@ -126,7 +162,7 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translate(400px, 300px) rotate(45deg);
+        transform: translate(600px, 400px) rotate(45deg);
         opacity: 0;
     }
 }
@@ -139,11 +175,11 @@ body {
         opacity: 1;
     }
     100% {
-        width: 20px;
-        height: 30px;
+        width: 30px;
+        height: 40px;
         opacity: 0;
         background: rgba(255, 255, 255, 0);
-        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
     }
 }
 
@@ -157,4 +193,44 @@ body {
     height: 20px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0) 50%);
     transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Carta */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px; /* Aumentamos el tamaño de la carta */
+    max-height: 80%; /* Limitamos la altura para que no ocupe toda la pantalla */
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fuente Comic Sans */
+    font-size: 14px; /* Reducimos el tamaño de la fuente */
+    line-height: 1.4;
+    border-radius: 10px;
+    display: none; /* Inicialmente oculta */
+    opacity: 0;
+    animation: showLetter 4s forwards;
+    overflow-y: auto; /* Habilitamos el desbordamiento de la carta si es necesario */
+}
+
+/* Animación para mostrar la carta con un destello */
+@keyframes showLetter {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0 0 60px rgba(255, 255, 255, 1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    }
 }
