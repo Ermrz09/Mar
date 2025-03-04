@@ -5,7 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Cake</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Night Sky Background */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #0d0d3b; /* Night sky */
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 150px;
+            height: 150px;
+            background-color: #fefae9;
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            pointer-events: none;
+        }
+
+        /* Cake and Candles */
+        #cake {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end; /* Move the cake layers down */
+        }
+
+        /* Cake layers */
+        .cake-layer {
+            width: 180px;
+            height: 50px;
+            border-radius: 10px;
+            margin: -10px 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .layer1 {
+            background-color: #4e3629; /* Dark brown */
+        }
+
+        .layer2 {
+            background-color: #6f4f27; /* Medium brown */
+        }
+
+        .layer3 {
+            background-color: #8b5a2b; /* Light brown */
+        }
+
+        /* Candles */
+        .velas {
+            position: absolute;
+            bottom: 50px;
+            width: 10px;
+            height: 40px;
+            background-color: #8b0000;
+            border-radius: 5px;
+        }
+
+        /* Distribute 3 candles evenly */
+        .velas:nth-child(1) { left: 10%; }
+        .velas:nth-child(2) { left: 45%; }
+        .velas:nth-child(3) { left: 80%; }
+
+        /* Fire on Candles */
+        .fuego {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            width: 8px;
+            height: 12px;
+            background: rgba(255, 165, 0, 0.8);
+            border-radius: 50%;
+            animation: fuegoAnimation 1s infinite ease-in-out;
+            margin-left: -4px; /* To center the fire above each candle */
+        }
+
+        @keyframes fuegoAnimation {
+            0%, 100% {
+                transform: translateY(0);
+                background: rgba(255, 165, 0, 0.8);
+                box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+            }
+            50% {
+                transform: translateY(-10px);
+                background: rgba(255, 255, 0, 0.6);
+                box-shadow: 0 0 30px rgba(255, 255, 0, 0.4);
+            }
+        }
+
+        /* Button Style */
+        #wishButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #fefae9;
+            color: #8b6a60;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+        }
+
+        #wishButton:hover {
+            background-color: #8b6a60;
+            color: #fefae9;
+        }
+
+        /* Birthday Text */
+        .text {
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            color: #ffffff;
+            font-size: 2em;
+            position: absolute;
+            top: 550px; /* Adjusted to position the text below the cake */
+            width: 100%;
+            display: none;
+        }
+
+        /* Hidden Image (GIF) */
+        #cakeGif {
+            display: none;
+            width: 200px;
+            height: auto;
+            position: absolute;
+            top: 300px; /* Center the GIF below the moon */
+            z-index: 1;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media screen and (max-width: 600px) {
+            body {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #cake {
+                width: 150px;
+                height: 150px;
+            }
+            .cake-layer {
+                width: 130px;
+                height: 35px;
+            }
+            .velas {
+                width: 8px;
+                height: 30px;
+            }
+            .fuego {
+                width: 6px;
+                height: 10px;
+            }
+            #wishButton {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -44,7 +223,14 @@
 
     <!-- GIF -->
     <img id="cakeGif" src="https://i.pinimg.com/originals/53/6e/33/536e33371e3c5d22108e7a8673c27fb6.gif" alt="Birthday Cake">
-    
-    <script src="script.js"></script>
+
+    <script>
+        // Show the birthday message when the button is clicked
+        document.getElementById('wishButton').onclick = function() {
+            document.getElementById('birthdayMessage').style.display = 'block';
+            document.getElementById('cake').style.display = 'none'; // Hide the cake
+            document.getElementById('cakeGif').style.display = 'block'; // Show the GIF
+        };
+    </script>
 </body>
 </html>
