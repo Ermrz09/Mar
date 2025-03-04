@@ -1,50 +1,53 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cielo Estrellado y Luna</title>
+    <title>Birthday Cake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="night"></div> <!-- Fondo cielo estrellado -->
-    <div class="moon" id="moon"></div>  <!-- Luna -->
 
-    <!-- Estrellas fugaces (10 en total) -->
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
-    <div class="shooting-star"></div>
+    <!-- Stars Background -->
+    <div class="stars"></div>
 
-    <!-- Carta que aparece al hacer clic en la luna -->
-    <div class="letter" id="letter">
-        <p>Querida Mar.</p>
+    <!-- Moon -->
+    <div class="moon"></div>
 
-        <p>Agradezco a la vida que hayas aparecido en mi camino, que bello ha sido conocerte y coincidir contigo en esta vida, espero poder seguir haciéndolo, conquistándote, cuidándote y robándote por lo menos una sonrisa día a día.</p>
+    <!-- Cake -->
+    <div id="cake">
+        <div class="cake-layer layer1"></div>
+        <div class="cake-layer layer2"></div>
+        <div class="cake-layer layer3"></div>
 
-        <p>Seguir conociéndote y aprendiendo de ti para tratarte mucho mejor y que te des cuenta lo mucho que me importas, aportaré con lo que pueda y en la medida que me lo permitas, pues solo quiero verte feliz; y siempre que me lo permitas estaré para ti, para escucharte, para apoyarte y para que sigamos escribiendo anécdotas y compartiendo sonrisas.</p>
+        <!-- Candles -->
+        <div class="velas">
+            <div class="fuego"></div>
+        </div>
+        <div class="velas">
+            <div class="fuego"></div>
+        </div>
+        <div class="velas">
+            <div class="fuego"></div>
+        </div>
+    </div>
 
-        <p>Nunca me cansaré de decirte que eres una persona muy chingona, muy inteligente con un brillo tan bello y que soy afortunado de que estés en mi vida y te intereses en mí.</p>
+    <!-- Button -->
+    <button id="wishButton">Pide un deseo</button>
 
-        <p>Desconozco que nos depare el futuro, pero deseo que en ese futuro estés tú y que te vayas dando cuenta que de verdad soy único y que si valgo mucho la pena.</p>
+    <!-- Birthday Message -->
+    <div id="birthdayMessage" class="text">
+        <h1>Happy Birthday MAR!</h1>
+        <p>Que todos tus deseos se vuelvan realidad</p>
+    </div>
 
-        <p>Feliz día de San Valentín Mar, no dejes de sonreír.</p>
+    <!-- GIF -->
+    <img id="cakeGif" src="https://i.pinimg.com/originals/53/6e/33/536e33371e3c5d22108e7a8673c27fb6.gif" alt="Birthday Cake">
 
-        <p>PD. Quizá no te lo he dicho, pero si lo expreso de muchas maneras, te quiero y mucho Mar.</p>
-
-        <p>Atentamente,<br> Mundi.</p>
+    <!-- YouTube Video (Song) -->
+    <div id="audio">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/5ar42kauTd8?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <script src="script.js"></script>
